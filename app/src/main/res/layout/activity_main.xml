@@ -5,20 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#dff"
     tools:context="com.example.user.wheatherapp.MainActivity">
 
+    <TextView
+        android:textColor="#065c02"
+        android:layout_marginTop="20dp"
+        android:textSize="25sp"
+        android:layout_gravity="center"
+        android:text="Know your weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 <EditText
+    android:textColor="#065c02"
+    android:hint="Enter a city"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
     android:layout_marginTop="20dp"
     android:id="@+id/cityname"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
+
     <Button
+        android:background="#fff"
+        android:textStyle="bold"
+        android:textColor="#065c02"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="What's the weather"
         android:id="@+id/process"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
+        android:text="Weather Result"
+        android:textSize="35sp"
+        android:textColor="#11409c"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:id="@+id/res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textSize="30sp"
+        android:textColor="#065c02"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
         android:id="@+id/main"
@@ -26,6 +58,8 @@
         android:layout_height="wrap_content" />
 
     <TextView
+        android:textSize="30sp"
+        android:textColor="#065c02"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:id="@+id/des"
