@@ -29,9 +29,10 @@ import java.net.URLEncoder;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView main, des;
+    TextView main, des, city;
     Button button;
     EditText editText;
+    String cityName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.process);
         main = findViewById(R.id.main);
         des = findViewById(R.id.des);
+        city = findViewById(R.id.city);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     public void findWeather()
 
     {
-        String cityName =editText.getText().toString();
+        cityName =editText.getText().toString();
 
         try {
 
@@ -126,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
                     main.setText(mainme);
                     des.setText(desme);
+                    city.setText(cityName);
 
                 }
 
