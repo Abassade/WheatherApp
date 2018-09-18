@@ -28,7 +28,7 @@
     android:layout_height="wrap_content" />
 
     <Button
-        android:background="#fff"
+        android:background="#b8ffff"
         android:textStyle="bold"
         android:textColor="#065c02"
         android:layout_marginLeft="30dp"
