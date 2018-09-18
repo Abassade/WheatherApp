@@ -9,6 +9,7 @@ import android.util.EventLogTags;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,23 +29,39 @@ import java.net.URLEncoder;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView main, des;
+    Button button;
+    EditText editText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findWeather();
+        editText = findViewById(R.id.cityname);
+        button = findViewById(R.id.process);
+        main = findViewById(R.id.main);
+        des = findViewById(R.id.des);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                findWeather();
+            }
+        });
+
     }
 
 
     public void findWeather()
 
     {
-        String cityName ="Ijebu";
+        String cityName =editText.getText().toString();
 
         try {
 
-            String encodedCityName = URLEncoder.encode(cityName.toString(), "UTF-8");
+            String encodedCityName = URLEncoder.encode(cityName, "UTF-8");
             DownloadTask task = new DownloadTask();
             task.execute("http://api.openweathermap.org/data/2.5/weather?q=" + encodedCityName +"&appid=fdfcba1097622977925d52619997f5fb");
         } catch (UnsupportedEncodingException e) {
@@ -101,8 +118,14 @@ public class MainActivity extends AppCompatActivity {
 
                     JSONObject jsonPart = jsonArray.getJSONObject(i);
 
-                    Log.i("main", jsonPart.getString("main"));
-                    Log.i("description", jsonPart.getString("description"));
+                    String mainme = jsonPart.getString("main");
+                    String desme = jsonPart.getString("description");
+
+                    Log.i("main", mainme);
+                    Log.i("description", desme);
+
+                    main.setText(mainme);
+                    des.setText(desme);
 
                 }
 
@@ -111,6 +134,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-}
-
+    }
 }
